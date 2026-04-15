@@ -74,7 +74,7 @@
           @foreach ($user->posts as $post)
           <div class="h-40 w-40 flex border-2 border-blue-900 text-center rounded-xl hover:shadow-2xl hover:-translate-y-0.5 cursor-pointer transition-all">
             @if($post->image != null)
-            <img class="object-cover rounded-xl" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->subject }}">
+                <img class="object-cover w-full rounded-xl" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->subject }}">
             @else
             @php
               $limit = 100;

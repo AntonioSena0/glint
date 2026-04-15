@@ -12,6 +12,10 @@ class AuthController extends Controller
 
     public function register(Request $request){
 
+        if(auth()->user()){
+            return redirect()->route('home.posts');
+        }
+
         $data = $request->validate([
             'username' => ['required', 'string', 'max:100', 'unique:users'],
             'bio' => ['nullable', 'string', 'max:250'],
@@ -37,6 +41,10 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
+
+        if(auth()->user()){
+            return redirect()->route('home.posts');
+        }
 
         $data = $request->validate([
             'email' => ['required', 'string', 'email', 'max:100'],

@@ -11,17 +11,29 @@ class GlintController extends Controller
 {
     public function index(){
 
+        if(auth()->user()){
+            return redirect()->route('home.posts');
+        }
+
         return view("landing");
 
     }
 
     public function indexLogin(){
 
+        if(auth()->user()){
+            return redirect()->route('home.posts');
+        }
+
         return view("login");
 
     }
 
     public function indexRegister(){
+
+        if(auth()->user()){
+            return redirect()->route('home.posts');
+        }
 
         return view("register");
 

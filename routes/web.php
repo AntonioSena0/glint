@@ -38,5 +38,5 @@ Route::delete('/comments/{comment}', [CommentController::class, 'delete'])->name
 Route::post('/users/{user}/follow', [FollowController::class, 'follow'])->name('users.follow')->middleware('auth');
 Route::delete('/users/{user}/unfollow', [FollowController::class, 'unfollow'])->name('users.unfollow')->middleware('auth');
 
-Route::get('/users/{user}/posts', [GlintController::class, 'posts'])->name('users.posts');
-Route::get('/users/{user}/profile', [GlintController::class, 'profile'])->name('users.profile');
+Route::get('/users/{user}/posts', [GlintController::class, 'posts'])->name('users.posts')->middleware('auth');
+Route::get('/users/{user}/profile', [GlintController::class, 'profile'])->name('users.profile')->middleware('auth');
